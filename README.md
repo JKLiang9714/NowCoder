@@ -13,20 +13,20 @@
 
 <h3 id="1.1">1. 小Q的歌单</h3>
 
-![](https://i.imgur.com/SsZYz27.png)
+![](./腾讯2018秋招笔试真题/assets/1. 小Q的歌单.jpg)
 
 <h3 id="1.2">2. 安排机器</h3>
 
-![](https://i.imgur.com/tuqhm8S.png)
+![](./腾讯2018秋招笔试真题/assets/2. 安排机器.jpg)
 
 <h3 id="1.3">3. 画家小Q</h3>
 
-![](https://i.imgur.com/DW3sjEe.png)
+![](./腾讯2018秋招笔试真题/assets/3. 画家小Q.jpg)
 
 <h3 id="1.4">4. 贪吃的小Q</h3>
 
-![](https://i.imgur.com/Y5AnVMM.png)
+![](./腾讯2018秋招笔试真题/assets/4. 贪吃的小Q.jpg)
 
 <h3 id="1.5">5. 纸牌游戏</h3>
 
-![](https://i.imgur.com/FsA6ng2.png)
+![](./腾讯2018秋招笔试真题/assets/5. 纸牌游戏.jpg)
