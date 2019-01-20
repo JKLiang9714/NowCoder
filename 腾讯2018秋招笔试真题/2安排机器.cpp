@@ -18,9 +18,9 @@ struct Node {
 	}
 };
 Node machine[MAXN + 1], task[MAXN + 1];
-int cnt[MAX_LEVEL + 1] = {0};
+int cnt[MAX_LEVEL + 1] = { 0 };
 
-int main() 
+int main()
 {
 	int n, m;
 	scanf("%d%d", &n, &m);
@@ -35,7 +35,7 @@ int main()
 	int num = 0;
 	long long res = 0;
 	for (int i = 0, j = 0; i < m; i++) {
-		while (j < n && machine[j].time >= task[i].time) {
+		while (j < n && machine[j].time >= task[i].time && machine[j].level >= task[i].level) {
 			cnt[task[i].level]++;
 			j++;
 		}
@@ -45,7 +45,7 @@ int main()
 				cnt[k]--;
 				res += (200 * task[i].time + 3 * task[i].level);
 				break;
-			} 
+			}
 		}
 	}
 	printf("%d %lld\n", num, res);
@@ -53,8 +53,12 @@ int main()
 }
 
 /*
-1 2
-100 3
-100 2
-100 1
+6 1
+886 79
+987 60
+69 22
+397 74
+552 12
+932 40
+394 96
 */
