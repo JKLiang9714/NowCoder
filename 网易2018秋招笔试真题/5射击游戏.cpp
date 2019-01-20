@@ -14,37 +14,45 @@ using namespace std;
 const int MAXN = 51;
 int x[MAXN], y[MAXN];
 
-int main() 
+int main()
 {
-	int n;
+    int n;
     scanf("%d", &n);
     for (int i = 0; i < n; i++) {
-        scanf("%d", &x[i]); 
+        scanf("%d", &x[i]);
     }
     for (int i = 0; i < n; i++) {
         scanf("%d", &y[i]);
     }
-    int res = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == j) continue;
-            for (int k = 0; k < n; k++) {
-                if (i == k || j == k) continue;
-                if ((y[k] - y[j]) * (x[i] - x[j]) == (y[i] - y[j]) * (x[k] - x[j])) continue;
-				int nums = 3;
-                for (int l = 0; l < n; l++) {
-                    if (i == l || j == l || k == l) continue;
-                    if ((y[i] - y[l]) * (x[i] - x[j]) == (y[i] - y[j]) * (x[i] - x[l]) || 
-						(y[j] - y[i]) * (y[k] - y[l]) == (x[k] - x[l]) * (x[i] - x[j])) {
-                        nums++;
+    if (n <= 2) {
+        printf("%d\n", n);
+    } else {
+        int res = 1;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j) continue;
+                int dx1 = x[j] - x[i];
+                int dy1 = y[j] - y[i];
+                for (int k = 0; k < n; k++) {
+                    int cnt = 0;
+                    if (i != k && j != k) {
+                        for (int l = 0; l < n; l++) {
+                            int dx2 = x[l] - x[i];
+                            int dy2 = y[l] - y[i];
+                            int dx3 = x[l] - x[k];
+                            int dy3 = y[l] - y[k];
+                            if (dy1 * dx2 == dy2 * dx1 || dy1 * dy3 == -dx3 * dx1) {
+                                cnt++;
+                            }
+                        }
                     }
+                    res = max(res, cnt);
                 }
-				res = max(res, nums);
             }
         }
+        printf("%d\n", res);
     }
-    printf("%d\n", res);
-	return 0;
+    return 0;
 }
 
 /*

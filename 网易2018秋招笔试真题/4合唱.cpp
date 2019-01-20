@@ -17,33 +17,37 @@ using namespace std;
 		dp[i][i-1] = dp[i-1][i-2] + abs(v[i-1] - v[i-2]), 		i ¡Ý 2
 */
 
-const int MAXN = 2010;
-int v[MAXN];
-int cost[MAXN];
-int dp[MAXN][MAXN];
-int res = INT_MAX;
-
-int main() 
+const int maxn = 2010;
+int dp[maxn][maxn];
+int acc[maxn], v[maxn];
+int main()
 {
 	int n;
 	scanf("%d", &n);
-	for (int i = 1; i <= n; i++) {
+	for (int i = 0; i < n; i++) {
 		scanf("%d", &v[i]);
-		cost[i] = abs(v[i] - v[i - 1]);
 	}
-	for (int i = 2; i < n; i++) {
-		dp[i][i - 1] = dp[i - 1][i - 2] + cost[i - 1];
+	if (n < 3) {
+		printf("0\n");
+	} else {
+		dp[1][0] = 0;
+		acc[1] = 0;
+		for (int i = 2; i < n; i++) {
+			acc[i] = acc[i - 1] + abs(v[i - 1] - v[i - 2]);
+			dp[i][i - 1] = acc[i];
+			for (int j = 0; j < i - 1; j++) {
+				dp[i][j] = dp[i - 1][j] + abs(v[i] - v[i - 1]);
+				dp[i][i - 1] = min(dp[i][i - 1], dp[i - 1][j] + abs(v[i] - v[j]));
+			}
+		}
+		int mins = dp[n - 1][0];
+		for (int i = 1; i < n - 1; i++) {
+			if (dp[n - 1][i] < mins) {
+				mins = dp[n - 1][i];
+			}
+		}
+		printf("%d", mins);
 	}
-	for (int i = 2; i < n; i++) {
-        for (int j = 0; j < i - 1; j++) {
-            dp[i][j] = dp[i - 1][j] + cost[i];
-            dp[i][i - 1] = min(dp[i][i - 1], dp[i - 1][j] + abs(v[i] - v[j]));
-        }
-    }
-    for (int i = 0; i < n - 1; ++i) {
-        res = min(res, dp[n - 1][i]);
-    }
-	printf("%d\n", res);
 	return 0;
 }
 
