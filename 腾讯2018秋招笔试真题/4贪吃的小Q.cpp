@@ -23,7 +23,7 @@ int main()
 	scanf("%d%d", &n, &m);
 	int l = 1, r = m;
 	while (l < r) {
-		int mid = (l + r) / 2;
+		int mid = (l + r + 1) / 2;
 		int yes = checkEnough(mid);
 		if (yes) l = mid;
 		else r = mid - 1;
