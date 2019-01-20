@@ -26,7 +26,9 @@ int main()
 {
 	int n;
 	scanf("%d", &n);
-	long long ans = (long long)(n * n + (n - 1) * n) % MOD;
+	// 注意下面这种方式写会出现int越界
+	// long long ans = (long long)(n * n + (n - 1) * n) % MOD;
+	long long ans = (long long) n * (2 * n - 1) % MOD;
 	// 底数不相等的情况，即对于 (i^x)^b = (i^y)^d，讨论 x!=y 且 i>1
 	set<int> s;
 	for (int i = 2; i * i <= n; i++) {
@@ -45,7 +47,7 @@ int main()
 			}
 		} 
 	}
-	printf("%d\n", ans);
+	printf("%lld\n", ans);
 	return 0;
 }
 
