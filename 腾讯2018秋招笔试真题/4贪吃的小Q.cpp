@@ -5,7 +5,7 @@ using namespace std;
 
 /*
 题解：
-	二分
+	二分，注意边界的处理
 */
 int n, m;
 
