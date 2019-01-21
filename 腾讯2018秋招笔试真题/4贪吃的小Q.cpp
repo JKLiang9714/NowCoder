@@ -4,7 +4,8 @@
 using namespace std;
 
 /*
-题解：二分 
+题解：
+	二分
 */
 int n, m;
 
